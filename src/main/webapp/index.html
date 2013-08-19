@@ -10,7 +10,7 @@
         <h1>Think Fast Game</h1>
         <div id="participant">
             <h2>Insert your name and click start to begin:</h2>
-            <input type="text" name="participant" />
+            <input type="text" name="participant" data-bind="value: participant" />
             <input type="button" value="start" data-bind="click: play" />
         </div>
         <br/>
@@ -27,12 +27,16 @@
         <script>
             var ThinkFast = function() {
                 var self = this;
-                self.participant = ko.observable();
+                self.participant = ko.observable("Anderson");
                 self.question = ko.observable();
                 self.answers = ko.observableArray([]);
-                
+
                 self.play = function() {
-                    
+                    $.getJSON("/thinkfast", 
+                    {participant: self.participant(), action: "play"},
+                        function(data) {
+                        }
+                    );
                 }
             }
             ko.applyBindings(new ThinkFast());

@@ -1,10 +1,9 @@
 package br.com.senac.ccs.thinkfast;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
@@ -25,6 +24,14 @@ public class ThinkFastGame {
     }
 
     public void play( String id, String name, AsyncContext asyncContext ) throws IOException {
+        Participant participant = new Participant( id, name, asyncContext );
+        this.participants.put( id, participant );
+        ObjectMapper mapper = new ObjectMapper();
+        Result result = new Result( currentQuestion, "Welcome!");
+        final String json = mapper.writeValueAsString( result );
+        System.out.println( json );
+        asyncContext.getResponse().getWriter().write( json);
+        asyncContext.complete();
     }
 
     public void bind( String id, AsyncContext asyncContext ) {
