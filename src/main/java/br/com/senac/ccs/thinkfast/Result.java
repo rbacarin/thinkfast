@@ -6,7 +6,7 @@ import java.util.List;
 @JsonInclude( JsonInclude.Include.NON_NULL )
 public class Result {
 
-    private Question question;
+    private Question question; 
     private String message;
     private List<Participant> participants;
 

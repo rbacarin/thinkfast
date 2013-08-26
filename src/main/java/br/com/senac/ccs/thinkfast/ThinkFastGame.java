@@ -11,7 +11,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import javax.servlet.AsyncContext;
 
-public class ThinkFastGame {
+public class ThinkFastGame { 
 
     private final ConcurrentHashMap<String, Participant> participants;
     private final Lock lock;

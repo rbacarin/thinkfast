@@ -6,7 +6,7 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 @WebServlet( urlPatterns = { "/thinkfast" },
-             asyncSupported = true )
+             asyncSupported = true ) 
 public class ThinkFastController extends HttpServlet {
 
     private ThinkFastGame game;

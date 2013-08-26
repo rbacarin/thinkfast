@@ -6,7 +6,7 @@ import java.util.List;
 public class Question {
 
     private String description;
-    private List<String> answers;
+    private List<String> answers; 
     private String answer;
 
     public Question() {

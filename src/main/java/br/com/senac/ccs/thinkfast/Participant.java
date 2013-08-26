@@ -6,7 +6,7 @@ import javax.servlet.AsyncContext;
 
 public class Participant {
 
-    private String id;
+    private String id; 
     private String name;
     private int score;
     private AsyncContext asyncContext;
