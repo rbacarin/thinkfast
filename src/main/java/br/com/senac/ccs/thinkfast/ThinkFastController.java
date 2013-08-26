@@ -19,19 +19,19 @@ public class ThinkFastController extends HttpServlet {
     }
 
     @Override
-    protected void doGet( HttpServletRequest req,
-                          HttpServletResponse resp )
+    protected void doGet( HttpServletRequest req, HttpServletResponse resp )
             throws ServletException, IOException {
-        AsyncContext startAsync = req.startAsync();
         final String id = req.getSession().getId();
         final String action = req.getParameter( "action" );
         if ( "play".equals( action ) ) {
+            AsyncContext startAsync = req.startAsync();
             game.play( id, req.getParameter( "participant" ), startAsync );
         }
         else if ( "bind".equals( action ) ) {
+            AsyncContext startAsync = req.startAsync();
             game.bind( id, startAsync );
         }
-        else if (  "answer".equals( action ) ) {
+        else if ( "answer".equals( action ) ) {
             game.answer( id, req.getParameter( "answer" ) );
         }
     }
